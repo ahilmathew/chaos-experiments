@@ -10,7 +10,7 @@ stop_delay_no_params () {
 install_tc () {
     if ! [ -x "$(command -v tc)" ]; then
         echo 'tc is not installed.' >&2
-        echo 'Installing tc'
+        echo 'Installing tc...'
         echo `sudo yum install tc -y`
     fi
 }
@@ -18,6 +18,7 @@ start_delay () {
 	INTERFACE=$2
 	DELAY=$1
     install_tc
+    echo "Starting delay of ${DELAY}ms on $INTERFACE"
     `sudo tc qdisc add dev $INTERFACE root netem delay ${DELAY}ms`
     exit 0
 }
@@ -36,7 +37,7 @@ if [ $# -eq 0 ]; then
     if [ -z "$2" ] || [ -z "$3" ] ; then
         start_delay_no_params
     else
-        echo "Delay $3 on $2"
+        echo "Delay $2ms on $3"
         start_delay $2 $3
     fi
     elif [ $1 == "stop" ]; then
