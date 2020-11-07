@@ -1,11 +1,11 @@
 #!/bin/bash
 start_delay_no_params () {
     echo "Arguments required for introducting delay to an interface are - the string 'start', amount of delay in milliseconds and the interface"
-    echo -e "Example:\n traffic_control.sh start 20 eth0"
+    echo -e "Example:\n ./traffic_control.sh start 20 eth0"
 }
 stop_delay_no_params () {
     echo "Arguments required for removing delay to an interface are - the string 'stop' and the interface"
-    echo -e "Example:\n traffic_control.sh stop eth0"
+    echo -e "Example:\n ./traffic_control.sh stop eth0"
 }
 install_tc () {
     if ! [ -x "$(command -v tc)" ]; then

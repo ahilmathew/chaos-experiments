@@ -1,11 +1,11 @@
 #!/bin/bash
 stress_no_params () {
     echo "Arguments required for cpu stress are - the string 'stress', number of cores to stress"
-    echo -e "Example:\n cpu_stress.sh stress 2"
+    echo -e "Example:\n ./cpu_stress.sh stress 2"
 }
 free_no_params () {
     echo "Arguments required for removing strees are- the string 'free'"
-    echo -e "Example:\n cpu_stress.sh free"
+    echo -e "Example:\n ./cpu_stress.sh free"
 }
 stress () {
     for (( c=1; c<=$1; c++ ))
